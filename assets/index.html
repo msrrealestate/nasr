@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النصر للتسويق العقاري | الإسماعيلية وضواحيها</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #070d19;
+            --navy-deep: #0b172a;
+            --navy-card: #0f213e;
+            --accent-green: #25D366;
+            --accent-green-glow: rgba(37, 211, 102, 0.25);
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(37, 211, 102, 0.2);
+            --danger-color: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* === HERO SECTION === */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 30%, #112540 0%, #070d19 80%);
+            padding-top: 20px;
+        }
+
+        .hero-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particles-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(rgba(37, 211, 102, 0.4) 1px, transparent 1px),
+                radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+            background-size: 80px 80px, 130px 130px;
+            background-position: 0 0, 40px 40px;
+            animation: particleFloat 25s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes particleFloat {
+            from { transform: translateY(0); }
+            to { transform: translateY(-130px); }
+        }
+
+        .buildings-back {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 55%;
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+            opacity: 0.5;
+        }
+
+        .buildings-front {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 65%;
+            transition: transform 0.08s ease-out;
+            will-change: transform;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                rgba(7, 13, 25, 0.75) 0%, 
+                rgba(7, 13, 25, 0.4) 40%, 
+                rgba(7, 13, 25, 0.85) 85%,
+                #070d19 100%);
+            z-index: 2;
+        }
+
+        .window-glow-1 { animation: windowPulse 4s ease-in-out infinite alternate; }
+        .window-glow-2 { animation: windowPulse 6s ease-in-out infinite alternate-reverse; animation-delay: 1.5s; }
+        .window-glow-3 { animation: windowPulse 5s ease-in-out infinite alternate; animation-delay: 3s; }
+        .green-accent-glow { animation: greenGlowPulse 5s ease-in-out infinite alternate; }
+
+        @keyframes windowPulse {
+            0% { opacity: 0.2; fill: #1e293b; }
+            50% { opacity: 0.9; fill: #fef08a; filter: drop-shadow(0 0 3px #fef08a); }
+            100% { opacity: 0.4; fill: #fbbf24; }
+        }
+
+        @keyframes greenGlowPulse {
+            0% { opacity: 0.3; filter: drop-shadow(0 0 2px #25D366); }
+            100% { opacity: 0.85; filter: drop-shadow(0 0 8px #25D366); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 850px;
+            padding: 40px 25px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            background: rgba(11, 23, 42, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            margin: 0 20px;
+        }
+
+        .hero-logo-wrapper {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-logo-img {
+            max-width: 140px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 20px;
+            background: rgba(37, 211, 102, 0.12);
+            border: 1px solid var(--accent-green);
+            border-radius: 50px;
+            color: var(--accent-green);
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.25;
+            color: #ffffff;
+            margin-bottom: 18px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #38bdf8, #25D366);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #25D366, #15803d);
+            color: white;
+            padding: 16px 42px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px var(--accent-green-glow);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.45);
+        }
+
+        .btn-disabled {
+            background: #475569 !important;
+            cursor: not-allowed !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        /* === ABOUT SECTION === */
+        .about-section {
+            position: relative;
+            padding: 90px 20px;
+            background: linear-gradient(180deg, #070d19 0%, #0b172a 50%, #070d19 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .about-container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            color: var(--accent-green);
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .profile-card {
+            position: relative;
+            background: var(--navy-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-box {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .company-logo {
+            max-width: 180px;
+            height: auto;
+            border-radius: 12px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            height: 360px;
+            margin: 0 auto 20px auto;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #112240;
+            border: 2px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .badge-certified {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(37, 211, 102, 0.05));
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 800;
+            margin-top: 5px;
+        }
+
+        .about-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .person-name {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .person-title {
+            color: #38bdf8;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-top: -12px;
+        }
+
+        .about-text {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 16px 12px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .stat-card h4 {
+            color: var(--accent-green);
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .stat-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .contact-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px var(--accent-green-glow);
+        }
+
+        .social-btn.whatsapp {
+            background: rgba(37, 211, 102, 0.15);
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .social-btn.facebook {
+            background: rgba(24, 119, 242, 0.15);
+            border-color: #1877F2;
+            color: #1877F2;
+        }
+
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: auto;
+        }
+
+        .location-tag svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--accent-green);
+        }
+
+        /* === MODALS === */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(7, 13, 25, 0.88);
+            backdrop-filter: blur(8px);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            padding: 15px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--navy-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 25px;
+            width: 100%;
+            max-width: 580px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            transform: scale(0.9);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 12px;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent-green);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-modal:hover { color: #fff; }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 14px;
+            text-align: center;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .option-card:hover {
+            background: rgba(37, 211, 102, 0.15);
+            border-color: var(--accent-green);
+            transform: translateY(-2px);
+            color: var(--accent-green);
+        }
+
+        /* === PROPERTY CARDS IN DISPLAY === */
+        .properties-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin-top: 15px;
+        }
+
+        .property-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 220px;
+        }
+
+        .property-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #000;
+        }
+
+        .sold-badge-overlay {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--danger-color);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 900;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        .property-body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .property-badge {
+            align-self: flex-start;
+            background: rgba(37, 211, 102, 0.15);
+            color: var(--accent-green);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .property-title-text {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .property-price {
+            color: #38bdf8;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .property-desc {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+            white-space: pre-line;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 10px;
+            color: #ff5555;
+            font-size: 1.1rem;
+            font-weight: 800;
+            background: rgba(255, 85, 85, 0.05);
+            border: 1px dashed rgba(255, 85, 85, 0.2);
+            border-radius: 16px;
+        }
+
+        /* ADMIN FORM & MANAGEMENT */
+        .input-group {
+            margin-bottom: 14px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .input-control {
+            width: 100%;
+            padding: 10px 14px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .input-control:focus {
+            border-color: var(--accent-green);
+        }
+
+        select.input-control option {
+            background: var(--navy-card);
+            color: #fff;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-green);
+            color: #000;
+            font-size: 15px;
+            font-weight: 800;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover { opacity: 0.9; }
+
+        .admin-property-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 14px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .admin-prop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-actions-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .btn-action.sold {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .btn-action.sold.active {
+            background: #ef4444;
+            color: #fff;
+        }
+
+        .btn-action.edit {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border-color: #38bdf8;
+        }
+
+        .btn-action.delete {
+            background: rgba(255, 85, 85, 0.15);
+            color: #ff5555;
+            border-color: #ff5555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .image-wrapper { max-width: 100%; height: 320px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.1rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-content { padding: 30px 18px; }
+            .btn-primary { width: 100%; justify-content: center; }
+            .buildings-front { height: 45%; }
+            .buildings-back { height: 35%; }
+            .section-title { font-size: 1.9rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 10px; }
+            .options-grid { grid-template-columns: 1fr; }
+            .contact-bar { justify-content: center; }
+            .location-tag { margin-right: 0; width: 100%; justify-content: center; margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="heroSection">
+        <div class="hero-bg-container">
+            <div class="particles-layer"></div>
+
+            <div class="buildings-back" id="layerBack">
+                <svg viewBox="0 0 1440 320" fill="none" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                    <path fill="#0d1b2a" opacity="0.7" d="M0,320 L0,180 L40,180 L40,120 L90,120 L90,220 L150,220 L150,150 L210,150 L210,320 L280,320 L280,90 L360,90 L360,320 L450,320 L450,160 L520,160 L520,320 L610,320 L610,100 L680,100 L680,320 L780,320 L780,140 L850,140 L850,320 L960,320 L960,80 L1040,80 L1040,320 L1150,320 L1150,170 L1240,170 L1240,320 L1350,320 L1350,130 L1440,130 L1440,320 Z"/>
+                </svg>
+            </div>
+
+            <div class="buildings-front" id="layerFront">
+                <svg viewBox="0 0 1440 400" fill="none" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                    <path fill="#0b1329" d="M0,400 L0,200 L60,200 L60,110 L140,110 L140,400 L220,400 L220,160 L320,160 L320,400 L400,400 L400,80 L510,80 L510,400 L620,400 L620,190 L710,190 L710,400 L800,400 L800,50 L930,50 L930,400 L1020,400 L1020,140 L1130,140 L1130,400 L1250,400 L1250,100 L1360,100 L1360,400 L1440,400 L1440,400 Z"/>
+                    <rect x="400" y="76" width="110" height="4" fill="#25D366" class="green-accent-glow" />
+                    <rect x="800" y="46" width="130" height="4" fill="#25D366" class="green-accent-glow" />
+                    <rect x="1250" y="96" width="110" height="4" fill="#25D366" class="green-accent-glow" />
+
+                    <rect class="window-glow-1" x="80" y="130" width="12" height="16" rx="2" />
+                    <rect class="window-glow-2" x="105" y="130" width="12" height="16" rx="2" />
+                    <rect class="window-glow-3" x="80" y="160" width="12" height="16" rx="2" />
+                    <rect class="window-glow-1" x="105" y="190" width="12" height="16" rx="2" />
+
+                    <rect class="window-glow-2" x="420" y="110" width="14" height="20" rx="2" />
+                    <rect class="window-glow-1" x="450" y="110" width="14" height="20" rx="2" />
+                    <rect class="window-glow-3" x="480" y="110" width="14" height="20" rx="2" />
+                    <rect class="window-glow-3" x="420" y="150" width="14" height="20" rx="2" />
+                    <rect class="window-glow-2" x="480" y="150" width="14" height="20" rx="2" />
+                    <rect class="window-glow-1" x="450" y="190" width="14" height="20" rx="2" />
+
+                    <rect class="window-glow-1" x="830" y="80" width="15" height="22" rx="2" />
+                    <rect class="window-glow-3" x="880" y="80" width="15" height="22" rx="2" />
+                    <rect class="window-glow-2" x="855" y="120" width="15" height="22" rx="2" />
+                    <rect class="window-glow-1" x="830" y="160" width="15" height="22" rx="2" />
+
+                    <rect class="window-glow-3" x="1280" y="130" width="12" height="18" rx="2" />
+                    <rect class="window-glow-1" x="1310" y="130" width="12" height="18" rx="2" />
+                    <rect class="window-glow-2" x="1280" y="170" width="12" height="18" rx="2" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-logo-wrapper">
+                <img src="assets/logo.jpg" alt="شعار شركة النصر" class="hero-logo-img">
+            </div>
+
+            <div class="hero-badge">
+                شركة النصر للتسويق العقاري
+            </div>
+            
+            <h1 class="hero-title">
+                خيارات عقارية موثوقة <span>في الإسماعيلية وضواحيها</span>
+            </h1>
+            <p class="hero-subtitle">
+                نوفر لك أرقى الوحدات السكنية والاستثمارية برؤية تسويقية احترافية وضمان تام، لنحقق لك خياراً عقارياً يناسب تطلعاتك بدقة وأمان.
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn-primary" onclick="openModal('propertyCategoryModal')">
+                    اطلب عقارك الآن 🎯
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: من نحن -->
+    <section class="about-section" id="aboutSection">
+        <div class="about-container">
+            <div class="section-header">
+                <span class="section-tag">تعرف علينا</span>
+                <h2 class="section-title">من نحن</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="profile-card">
+                    <!-- الضغط مرتين على شعار الشركة يفتح لوحة التحكم -->
+                    <div class="logo-box" ondblclick="openModal('adminLoginModal')" title="النصر للتسويق العقاري">
+                        <img src="assets/logo.jpg" alt="شعار شركة النصر للتسويق العقاري" class="company-logo">
+                    </div>
+
+                    <div class="image-wrapper">
+                        <img src="assets/abo-karim.jpg" alt="الأستاذ أبو كريم - مسوق عقاري معتمد">
+                    </div>
+
+                    <div class="badge-certified">
+                        ✓ مسوق عقاري معتمد
+                    </div>
+                </div>
+
+                <div class="about-info">
+                    <div>
+                        <h3 class="person-name">الأستاذ أبو كريم</h3>
+                        <p class="person-title">خبير ومسوق عقاري معتمد - الإسماعيلية وضواحيها</p>
+                    </div>
+
+                    <p class="about-text">
+                        بنوفرلك جميع العقارات بيع وايجار في الاسماعيلية وضواحيها باسعار ممتازة تقدر تتواصل معانا او تصفح الموقع عشان تلاقي طلبك من خانة اطلب عقارك فوق.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>تغطية كاملة</h4>
+                            <p>الإسماعيلية وضواحيها</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>اعتماد رسمي</h4>
+                            <p>مسوق عقاري معتمد</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>تسهيلات كاملة</h4>
+                            <p>بيع، شراء، واستشارات</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-bar">
+                        <a href="https://wa.me/201281669573" target="_blank" class="social-btn whatsapp" title="تواصل عبر الواتساب">
+                            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+
+                        <a href="tel:01281669573" class="social-btn" title="اتصال هاتفي">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </a>
+
+                        <a href="https://www.facebook.com/profile.php?id=61574726456467&locale=ar_AR" target="_blank" class="social-btn facebook" title="صفحة الفيسبوك">
+                            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+
+                        <div class="location-tag">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            الإسماعيلية وضواحيها، مصر
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        جميع الحقوق محفوظة © شركة النصر للتسويق العقاري
+    </footer>
+
+    <!-- MODAL 1: اختيار قسم العقار -->
+    <div class="modal-overlay" id="propertyCategoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">اختر نوع العقار المطلوب</h3>
+                <button class="close-modal" onclick="closeModal('propertyCategoryModal')">&times;</button>
+            </div>
+            <p style="color: var(--text-muted); font-size: 14px;">اختر القسم لعرض العروض والعقارات المتاحة لدينا:</p>
+            
+            <div class="options-grid">
+                <div class="option-card" onclick="viewPropertiesCategory('شقة للبيع')">🏢 شقة للبيع</div>
+                <div class="option-card" onclick="viewPropertiesCategory('شقة للإيجار')">🔑 شقة للإيجار</div>
+                <div class="option-card" onclick="viewPropertiesCategory('محل للبيع')">🏪 محل للبيع</div>
+                <div class="option-card" onclick="viewPropertiesCategory('محل للإيجار')">🏷️ محل للإيجار</div>
+                <div class="option-card" onclick="viewPropertiesCategory('فيلا للبيع')">🏰 فيلا للبيع</div>
+                <div class="option-card" onclick="viewPropertiesCategory('منزل للبيع')">🏠 منزل للبيع</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: عرض قائمة العقارات حسب القسم المختارات -->
+    <div class="modal-overlay" id="propertiesDisplayModal">
+        <div class="modal-content" style="max-width: 680px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="displayCategoryTitle">العقارات المتاحة</h3>
+                <button class="close-modal" onclick="closeModal('propertiesDisplayModal')">&times;</button>
+            </div>
+
+            <div id="propertiesListContainer">
+                <!-- يتم التحميل ديناميكياً بواسطة JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: تسجيل دخول الإدارة (مخفي) -->
+    <div class="modal-overlay" id="adminLoginModal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 class="modal-title">تسجيل دخول الإدارة</h3>
+                <button class="close-modal" onclick="closeModal('adminLoginModal')">&times;</button>
+            </div>
+            <form onsubmit="handleAdminLogin(event)">
+                <div class="input-group">
+                    <label>أدخل كلمة المرور:</label>
+                    <input type="password" id="adminPasswordInput" class="input-control" placeholder="••••••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit">دخول</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 4: لوحة التحكم بالنشر والتعديل والختم والحدف -->
+    <div class="modal-overlay" id="adminDashboardModal">
+        <div class="modal-content" style="max-width: 680px;">
+            <div class="modal-header">
+                <h3 class="modal-title">لوحة إضافة وتحديث العقارات ⚙️</h3>
+                <button class="close-modal" onclick="closeModal('adminDashboardModal')">&times;</button>
+            </div>
+            
+            <!-- نموذج إضافة أو تعديل عقار -->
+            <form id="propertyForm" onsubmit="handlePropertySubmit(event)" style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                <h4 id="formHeaderTitle" style="color: var(--accent-green); margin-bottom: 12px; font-size: 15px;">➕ إضافة عقار جديد:</h4>
+                <input type="hidden" id="editPropId" value="">
+
+                <div class="input-group">
+                    <label>نوع العقار:</label>
+                    <select id="newPropType" class="input-control" required>
+                        <option value="شقة للبيع">شقة للبيع</option>
+                        <option value="شقة للإيجار">شقة للإيجار</option>
+                        <option value="محل للبيع">محل للبيع</option>
+                        <option value="محل للإيجار">محل للإيجار</option>
+                        <option value="فيلا للبيع">فيلا للبيع</option>
+                        <option value="منزل للبيع">منزل للبيع</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>عنوان أو اسم العقار:</label>
+                    <input type="text" id="newPropTitle" class="input-control" placeholder="مثال: محل 60 متر شارع شبين الرئيسي" required>
+                </div>
+
+                <div class="input-group">
+                    <label>السعر / قيمة الإيجار:</label>
+                    <input type="text" id="newPropPrice" class="input-control" placeholder="مثال: 5,000 ج.م شهرياً" required>
+                </div>
+
+                <div class="input-group">
+                    <label>التفاصيل والمواصفات:</label>
+                    <textarea id="newPropDetails" class="input-control" rows="3" placeholder="أدخل تفاصيل العقار، الموقع، التشطيب، والخدمات المتاحة..." required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>صورة العقار (اختر صورة جديدة إذا كنت تريد تغييرها):</label>
+                    <input type="file" id="newPropImage" class="input-control" accept="image/*">
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" id="formSubmitBtn" class="btn-submit">نشر العقار الآن 🚀</button>
+                    <button type="button" id="cancelEditBtn" onclick="resetAdminForm()" style="display: none; background: #64748b; color: #fff; padding: 12px; border: none; border-radius: 10px; cursor: pointer; font-weight: 700;">إلغاء التعديل</button>
+                </div>
+            </form>
+
+            <h4 style="color: #fff; margin-bottom: 10px; font-size: 15px;">📋 العقارات المنشورة حالياً:</h4>
+            <div id="adminPropertiesList">
+                <!-- يتم تحميل قائمة العقارات للتحكم -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Parallax Effect
+        const hero = document.getElementById('heroSection');
+        const layerBack = document.getElementById('layerBack');
+        const layerFront = document.getElementById('layerFront');
+        let ticking = false;
+
+        hero.addEventListener('mousemove', (e) => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const { clientX, clientY } = e;
+                    const xPercent = (clientX / window.innerWidth - 0.5);
+                    const yPercent = (clientY / window.innerHeight - 0.5);
+                    layerBack.style.transform = `translate3d(${xPercent * -12}px, ${yPercent * -6}px, 0)`;
+                    layerFront.style.transform = `translate3d(${xPercent * -28}px, ${yPercent * -12}px, 0)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Modals Management
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // عرض عقارات قسم معين للزائر
+        function viewPropertiesCategory(categoryType) {
+            closeModal('propertyCategoryModal');
+            document.getElementById('displayCategoryTitle').innerText = categoryType;
+            
+            const properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+            const filtered = properties.filter(p => p.type === categoryType);
+            const container = document.getElementById('propertiesListContainer');
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        ⚠️ عذراً، لا تتوفر وحدات من قسم (${categoryType}) حالياً.<br>
+                        <small style="font-weight: 600; color: var(--text-muted); margin-top: 5px; display: block;">يرجى التحقق لاحقاً أو التواصل معنا مباشرة لطلب خاص.</small>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="properties-grid">
+                        ${filtered.map(p => `
+                            <div class="property-card">
+                                <div class="property-img-wrap">
+                                    <img src="${p.image}" class="property-img" alt="${p.title}">
+                                    ${p.isSold ? `<div class="sold-badge-overlay">تم البيع / حجز الوحدة 🛑</div>` : ''}
+                                </div>
+                                <div class="property-body">
+                                    <span class="property-badge">${p.type}</span>
+                                    <h4 class="property-title-text">${p.title}</h4>
+                                    <div class="property-price">${p.price}</div>
+                                    <p class="property-desc">${p.details}</p>
+                                    
+                                    ${p.isSold ? `
+                                        <button class="btn-primary btn-disabled" disabled style="padding: 10px; font-size: 15px; width: 100%; margin-top: 5px;">
+                                            هذه الوحدة غير متاح طلبها الآن 🛑
+                                        </button>
+                                    ` : `
+                                        <button class="btn-primary" style="padding: 10px; font-size: 15px; width: 100%; margin-top: 5px;" onclick="requestInspection('${escapeQuotes(p.title)}', '${p.type}', '${escapeQuotes(p.price)}')">
+                                            اطلب معاينة 👁️
+                                        </button>
+                                    `}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            openModal('propertiesDisplayModal');
+        }
+
+        function escapeQuotes(str) {
+            return str ? str.replace(/'/g, "\\'").replace(/"/g, '&quot;') : '';
+        }
+
+        // طلب معاينة عبر الواتساب
+        function requestInspection(title, type, price) {
+            const message = `السلام عليكم، أود طلب معاينة للعقار التالي:\n\n📌 النوع: ${type}\n🏢 العقار: ${title}\n💰 السعر/الإيجار: ${price}\n\nيرجى تحديد موعد للمعاينة والتفاصيل.`;
+            const encodedMsg = encodeURIComponent(message);
+            window.open(`https://wa.me/201281669573?text=${encodedMsg}`, '_blank');
+        }
+
+        // تسجيل دخول لوحة التحكم
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const pass = document.getElementById('adminPasswordInput').value;
+            if (pass === '0128166957301028799871') {
+                closeModal('adminLoginModal');
+                document.getElementById('adminPasswordInput').value = '';
+                loadAdminPropertiesList();
+                openModal('adminDashboardModal');
+            } else {
+                alert('كلمة المرور غير صحيحة!');
+            }
+        }
+
+        // حفظ أو تعديل عقار
+        function handlePropertySubmit(e) {
+            e.preventDefault();
+            
+            const editId = document.getElementById('editPropId').value;
+            const type = document.getElementById('newPropType').value;
+            const title = document.getElementById('newPropTitle').value;
+            const price = document.getElementById('newPropPrice').value;
+            const details = document.getElementById('newPropDetails').value;
+            const fileInput = document.getElementById('newPropImage');
+
+            let properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+
+            if (editId) {
+                // وضع التعديل
+                const index = properties.findIndex(p => p.id == editId);
+                if (index !== -1) {
+                    properties[index].type = type;
+                    properties[index].title = title;
+                    properties[index].price = price;
+                    properties[index].details = details;
+
+                    if (fileInput.files && fileInput.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            properties[index].image = event.target.result;
+                            localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+                            alert('تم تعديل العقار بنجاح!');
+                            resetAdminForm();
+                            loadAdminPropertiesList();
+                        };
+                        reader.readAsDataURL(fileInput.files[0]);
+                    } else {
+                        localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+                        alert('تم تعديل العقار بنجاح!');
+                        resetAdminForm();
+                        loadAdminPropertiesList();
+                    }
+                }
+            } else {
+                // وضع الإضافة الجديدة
+                if (!fileInput.files || !fileInput.files[0]) {
+                    alert('يرجى اختيار صورة للعقار.');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const newProperty = {
+                        id: Date.now(),
+                        type: type,
+                        title: title,
+                        price: price,
+                        details: details,
+                        image: event.target.result,
+                        isSold: false
+                    };
+
+                    properties.unshift(newProperty);
+                    localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+
+                    alert('تم نشر العقار بنجاح!');
+                    resetAdminForm();
+                    loadAdminPropertiesList();
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+
+        // تجهيز النموذج للتعديل
+        function editProperty(id) {
+            const properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+            const prop = properties.find(p => p.id == id);
+            if (!prop) return;
+
+            document.getElementById('editPropId').value = prop.id;
+            document.getElementById('newPropType').value = prop.type;
+            document.getElementById('newPropTitle').value = prop.title;
+            document.getElementById('newPropPrice').value = prop.price;
+            document.getElementById('newPropDetails').value = prop.details;
+
+            document.getElementById('formHeaderTitle').innerText = '✏️ تعديل بيانات العقار:';
+            document.getElementById('formSubmitBtn').innerText = 'حفظ التعديلات 💾';
+            document.getElementById('cancelEditBtn').style.display = 'block';
+
+            // التمرير لأعلى النموذج
+            document.getElementById('propertyForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // إعادة ضبط النموذج
+        function resetAdminForm() {
+            document.getElementById('editPropId').value = '';
+            document.getElementById('newPropTitle').value = '';
+            document.getElementById('newPropPrice').value = '';
+            document.getElementById('newPropDetails').value = '';
+            document.getElementById('newPropImage').value = '';
+            document.getElementById('formHeaderTitle').innerText = '➕ إضافة عقار جديد:';
+            document.getElementById('formSubmitBtn').innerText = 'نشر العقار الآن 🚀';
+            document.getElementById('cancelEditBtn').style.display = 'none';
+        }
+
+        // ختم/إلغاء ختم تم البيع
+        function toggleSoldStatus(id) {
+            let properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+            const index = properties.findIndex(p => p.id == id);
+            if (index !== -1) {
+                properties[index].isSold = !properties[index].isSold;
+                localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+                loadAdminPropertiesList();
+            }
+        }
+
+        // تحميل قائمة العقارات للوحة التحكم
+        function loadAdminPropertiesList() {
+            const container = document.getElementById('adminPropertiesList');
+            const properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+
+            if (properties.length === 0) {
+                container.innerHTML = `<p style="color: var(--text-muted); font-size: 13px; text-align: center;">لا توجد عقارات منشورة حالياً.</p>`;
+                return;
+            }
+
+            container.innerHTML = properties.map(p => `
+                <div class="admin-property-card">
+                    <div class="admin-prop-header">
+                        <div>
+                            <strong style="color: #fff; font-size: 15px;">${p.title}</strong>
+                            <span style="color: var(--accent-green); font-size: 13px; display: block;">${p.type} - ${p.price}</span>
+                        </div>
+                        ${p.isSold ? `<span style="background: var(--danger-color); color:#fff; font-size:11px; padding:3px 8px; border-radius:6px; font-weight:800;">تم البيع 🛑</span>` : ''}
+                    </div>
+
+                    <div class="admin-actions-bar">
+                        <button class="btn-action sold ${p.isSold ? 'active' : ''}" onclick="toggleSoldStatus(${p.id})">
+                            ${p.isSold ? 'إلغاء ختم البيع 🔄' : 'ختم تم البيع 🛑'}
+                        </button>
+                        <button class="btn-action edit" onclick="editProperty(${p.id})">تعديل ✏️</button>
+                        <button class="btn-action delete" onclick="deleteProperty(${p.id})">حذف 🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // حذف عقار من اللوحة
+        function deleteProperty(id) {
+            if (confirm('هل أنت تأكد من حذف هذا العقار؟')) {
+                let properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+                properties = properties.filter(p => p.id !== id);
+                localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+                loadAdminPropertiesList();
+            }
+        }
+    </script>
+</body>
+</html>
