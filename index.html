@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النصر للتسويق والخدمات | الإسماعيلية وضواحيها</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --navy-deep: #080d1a;
+            --navy-card: rgba(15, 23, 42, 0.72);
+            --navy-card-hover: rgba(20, 30, 55, 0.85);
+            --accent-green: #25D366;
+            --accent-green-bright: #10b981;
+            --accent-cyan: #38bdf8;
+            --accent-blue: #3b82f6;
+            --accent-green-glow: rgba(37, 211, 102, 0.35);
+            --accent-cyan-glow: rgba(56, 189, 248, 0.35);
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(56, 189, 248, 0.22);
+            --danger-color: #ef4444;
+            --glass-bg: rgba(11, 19, 41, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.75);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Arabic", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* === MOUSE SPOTLIGHT FOLLOWER === */
+        #mouseSpotlight {
+            position: fixed;
+            width: 650px;
+            height: 650px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(37, 211, 102, 0.04) 45%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: transform 0.12s ease-out;
+            will-change: transform;
+        }
+
+        /* === SCROLLBAR STYLING === */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+            border: 2px solid var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-cyan);
+        }
+
+        /* === ANIMATIONS & LIGHTING EFFECT === */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px var(--accent-green-glow), inset 0 0 10px rgba(37, 211, 102, 0.1); }
+            50% { box-shadow: 0 0 35px var(--accent-cyan-glow), inset 0 0 20px rgba(56, 189, 248, 0.2); }
+            100% { box-shadow: 0 0 15px var(--accent-green-glow), inset 0 0 10px rgba(37, 211, 102, 0.1); }
+        }
+
+        @keyframes borderRotate {
+            0% { border-color: rgba(37, 211, 102, 0.4); }
+            50% { border-color: rgba(56, 189, 248, 0.7); }
+            100% { border-color: rgba(37, 211, 102, 0.4); }
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes shineSweep {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        @keyframes bgGlowMove {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.35; }
+            50% { transform: translate(40px, -40px) scale(1.15); opacity: 0.55; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.35; }
+        }
+
+        /* === AMBIENT BACKGROUND GLOWS === */
+        .ambient-glow-1 {
+            position: absolute;
+            top: 5%;
+            right: 8%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            animation: bgGlowMove 14s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.14) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            animation: bgGlowMove 18s infinite ease-in-out reverse;
+            z-index: 1;
+        }
+
+        /* === HERO SECTION === */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 30%, #0c1a30 0%, #020617 90%);
+            padding: 60px 20px;
+        }
+
+        .hero-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particles-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(rgba(37, 211, 102, 0.6) 1.5px, transparent 1.5px),
+                radial-gradient(rgba(56, 189, 248, 0.5) 1.5px, transparent 1.5px);
+            background-size: 80px 80px, 140px 140px;
+            background-position: 0 0, 40px 40px;
+            animation: particleFloat 25s linear infinite;
+            opacity: 0.65;
+        }
+
+        @keyframes particleFloat {
+            from { transform: translateY(0); }
+            to { transform: translateY(-140px); }
+        }
+
+        .buildings-back {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 55%;
+            transition: transform 0.1s cubic-bezier(0.1, 0.7, 0.1, 1);
+            will-change: transform;
+            opacity: 0.45;
+        }
+
+        .buildings-front {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 65%;
+            transition: transform 0.08s cubic-bezier(0.1, 0.7, 0.1, 1);
+            will-change: transform;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                rgba(2, 6, 23, 0.85) 0%, 
+                rgba(2, 6, 23, 0.35) 45%, 
+                rgba(2, 6, 23, 0.92) 88%,
+                #020617 100%);
+            z-index: 2;
+        }
+
+        .window-glow-1 { animation: windowPulse 4s ease-in-out infinite alternate; }
+        .window-glow-2 { animation: windowPulse 6s ease-in-out infinite alternate-reverse; animation-delay: 1.5s; }
+        .window-glow-3 { animation: windowPulse 5s ease-in-out infinite alternate; animation-delay: 3s; }
+        .green-accent-glow { animation: greenGlowPulse 5s ease-in-out infinite alternate; }
+
+        @keyframes windowPulse {
+            0% { opacity: 0.2; fill: #1e293b; }
+            50% { opacity: 0.95; fill: #38bdf8; filter: drop-shadow(0 0 8px #38bdf8); }
+            100% { opacity: 0.4; fill: #25D366; filter: drop-shadow(0 0 6px #25D366); }
+        }
+
+        @keyframes greenGlowPulse {
+            0% { opacity: 0.3; filter: drop-shadow(0 0 4px #25D366); }
+            100% { opacity: 1; filter: drop-shadow(0 0 16px #25D366); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 55px 40px;
+            text-align: center;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            background: rgba(10, 19, 40, 0.65);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 36px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), inset 0 0 35px rgba(56, 189, 248, 0.12);
+            margin: 0 20px;
+            animation: borderRotate 7s infinite alternate, heroEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero-content:hover {
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95), inset 0 0 45px rgba(56, 189, 248, 0.18);
+        }
+
+        @keyframes heroEntrance {
+            0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .hero-logo-wrapper {
+            margin-bottom: 22px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-logo-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            background: radial-gradient(circle, var(--accent-green-glow) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseGlow 4s infinite alternate;
+        }
+
+        .hero-logo-img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.6), 0 0 30px var(--accent-green-glow);
+            border: 2px solid var(--accent-green);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hero-logo-img:hover {
+            transform: scale(1.08) rotate(2deg);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(56, 189, 248, 0.15));
+            border: 1px solid var(--accent-green);
+            border-radius: 50px;
+            color: var(--accent-green);
+            font-size: 15.5px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            box-shadow: 0 0 22px rgba(37, 211, 102, 0.28);
+            letter-spacing: 0.3px;
+            animation: floatAnimation 5s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-size: 3.3rem;
+            font-weight: 900;
+            line-height: 1.25;
+            color: #ffffff;
+            margin-bottom: 22px;
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #38bdf8 0%, #25D366 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 18px rgba(37, 211, 102, 0.45));
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 36px;
+            line-height: 1.7;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-actions-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* === BUTTONS === */
+        .btn-primary {
+            position: relative;
+            background: linear-gradient(135deg, #25D366 0%, #15803d 100%);
+            color: white;
+            padding: 18px 44px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.32), 0 0 25px var(--accent-green-glow);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg);
+            transition: none;
+        }
+
+        .btn-primary:hover::before {
+            animation: shineSweep 1.2s ease-in-out infinite;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 18px 38px rgba(37, 211, 102, 0.5), 0 0 40px rgba(37, 211, 102, 0.75);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .btn-secondary-sm {
+            position: relative;
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 13px 30px;
+            border-radius: 16px;
+            font-size: 15.5px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 0 18px var(--accent-cyan-glow);
+            transition: all 0.35s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            overflow: hidden;
+        }
+
+        .btn-secondary-sm:hover {
+            background: var(--accent-cyan);
+            color: #020617;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(56, 189, 248, 0.5), 0 0 30px rgba(56, 189, 248, 0.85);
+        }
+
+        .btn-secondary-sm:active {
+            transform: translateY(0) scale(0.97);
+        }
+
+        .btn-disabled {
+            background: #334155 !important;
+            color: #94a3b8 !important;
+            cursor: not-allowed !important;
+            box-shadow: none !important;
+            transform: none !important;
+            border-color: #475569 !important;
+        }
+
+        /* === ABOUT SECTION === */
+        .about-section {
+            position: relative;
+            padding: 110px 20px;
+            background: linear-gradient(180deg, #020617 0%, #080d1a 50%, #020617 100%);
+            border-top: 1px solid rgba(56, 189, 248, 0.18);
+            z-index: 2;
+        }
+
+        .about-container {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            color: var(--accent-cyan);
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+            text-shadow: 0 0 12px var(--accent-cyan-glow);
+            background: rgba(56, 189, 248, 0.1);
+            padding: 5px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .section-title {
+            font-size: 2.7rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .profile-card {
+            position: relative;
+            background: var(--navy-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glow);
+            border-radius: 36px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: var(--shadow-premium), inset 0 0 25px rgba(56, 189, 248, 0.1);
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(37, 211, 102, 0.45);
+            box-shadow: 0 35px 75px rgba(0, 0, 0, 0.9), 0 0 35px rgba(37, 211, 102, 0.25);
+        }
+
+        .logo-box {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .company-logo {
+            max-width: 195px;
+            height: auto;
+            border-radius: 18px;
+            filter: drop-shadow(0 0 14px rgba(37, 211, 102, 0.35));
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .company-logo:hover {
+            transform: scale(1.06);
+            filter: drop-shadow(0 0 22px rgba(37, 211, 102, 0.65));
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+            height: 380px;
+            margin: 0 auto 24px auto;
+            border-radius: 26px;
+            overflow: hidden;
+            background: #0d1b2a;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 30px var(--accent-cyan-glow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 60%, rgba(10, 19, 40, 0.85) 100%);
+        }
+
+        .image-wrapper:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.65);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.06);
+        }
+
+        .badge-certified {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(37, 211, 102, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 10px 26px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 800;
+            box-shadow: 0 0 18px var(--accent-green-glow);
+            animation: pulseGlow 4s infinite alternate;
+        }
+
+        .about-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .person-name {
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .person-title {
+            color: var(--accent-cyan);
+            font-size: 1.22rem;
+            font-weight: 700;
+            margin-top: -8px;
+            text-shadow: 0 0 12px var(--accent-cyan-glow);
+        }
+
+        .about-text {
+            color: #cbd5e1;
+            font-size: 1.15rem;
+            line-height: 1.85;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.025);
+            padding: 22px;
+            border-radius: 20px;
+            border-right: 4px solid var(--accent-green);
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.01);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin: 10px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.035);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 20px 16px;
+            border-radius: 22px;
+            text-align: center;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-green-glow);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+            background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+        }
+
+        .stat-card h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .contact-bar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .social-btn {
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn svg {
+            width: 25px;
+            height: 25px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .social-btn:hover svg {
+            transform: scale(1.15);
+        }
+
+        .social-btn:hover {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: #000;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.45), 0 0 22px var(--accent-green-glow);
+        }
+
+        .social-btn.whatsapp {
+            background: rgba(37, 211, 102, 0.15);
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .social-btn.facebook {
+            background: rgba(24, 119, 242, 0.15);
+            border-color: #1877F2;
+            color: #1877F2;
+        }
+
+        .social-btn.facebook:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+            color: #fff;
+            box-shadow: 0 12px 28px rgba(24, 119, 242, 0.45);
+        }
+
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 700;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.035);
+            padding: 12px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .location-tag svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent-green);
+        }
+
+        /* === MODALS === */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 6, 23, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease, backdrop-filter 0.35s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: rgba(10, 19, 40, 0.95);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 34px;
+            padding: 38px;
+            width: 100%;
+            max-width: 620px;
+            max-height: 88vh;
+            overflow-y: auto;
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.92), inset 0 0 30px rgba(56, 189, 248, 0.14);
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            padding-bottom: 16px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            text-shadow: 0 0 14px var(--accent-green-glow);
+        }
+
+        .close-modal {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-muted);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 26px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            background: rgba(239, 68, 68, 0.25);
+            border-color: var(--danger-color);
+            color: #fff;
+            transform: rotate(90deg);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 20px 16px;
+            border-radius: 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card:hover {
+            background: rgba(37, 211, 102, 0.18);
+            border-color: var(--accent-green);
+            transform: translateY(-4px) scale(1.02);
+            color: var(--accent-green);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 22px var(--accent-green-glow);
+        }
+
+        .option-card:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .back-btn-card {
+            background: rgba(56, 189, 248, 0.14) !important;
+            border-color: var(--accent-cyan) !important;
+            color: var(--accent-cyan) !important;
+            grid-column: span 2;
+        }
+
+        .back-btn-card:hover {
+            background: rgba(56, 189, 248, 0.28) !important;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 22px var(--accent-cyan-glow) !important;
+        }
+
+        /* === PROPERTY CARDS IN DISPLAY === */
+        .properties-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .property-card {
+            position: relative;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(56, 189, 248, 0.22);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.35s ease;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+        }
+
+        .property-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 25px rgba(56, 189, 248, 0.3);
+        }
+
+        .property-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .property-img-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 50%, rgba(15, 23, 42, 0.95) 100%);
+        }
+
+        .property-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .property-card:hover .property-img {
+            transform: scale(1.08);
+        }
+
+        .sold-badge-overlay {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--danger-color);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 900;
+            box-shadow: 0 0 22px rgba(239, 68, 68, 0.75);
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .property-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .property-badge {
+            align-self: flex-start;
+            background: rgba(37, 211, 102, 0.15);
+            color: var(--accent-green);
+            padding: 6px 16px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            font-weight: 800;
+            border: 1px solid rgba(37, 211, 102, 0.38);
+        }
+
+        .property-title-text {
+            font-size: 1.32rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .property-price {
+            color: var(--accent-cyan);
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px var(--accent-cyan-glow);
+        }
+
+        .property-desc {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            line-height: 1.65;
+            white-space: pre-line;
+            background: rgba(0, 0, 0, 0.28);
+            padding: 14px 16px;
+            border-radius: 14px;
+            border-right: 3px solid rgba(56, 189, 248, 0.45);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 55px 20px;
+            color: #ff6b6b;
+            font-size: 1.2rem;
+            font-weight: 800;
+            background: rgba(255, 85, 85, 0.05);
+            border: 1px dashed rgba(255, 85, 85, 0.35);
+            border-radius: 22px;
+        }
+
+        /* FORMS & INPUTS */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14.5px;
+            color: #cbd5e1;
+            font-weight: 700;
+        }
+
+        .input-control {
+            width: 100%;
+            padding: 15px 18px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            border-radius: 16px;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-control:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 18px var(--accent-green-glow);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        select.input-control option {
+            background: #0f172a;
+            color: #fff;
+            padding: 10px;
+        }
+
+        select.input-control optgroup {
+            background: #081226;
+            color: var(--accent-cyan);
+            font-weight: 800;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 17px;
+            background: linear-gradient(135deg, #25D366 0%, #16a34a 100%);
+            color: #020617;
+            font-size: 17px;
+            font-weight: 900;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.35);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 35px rgba(37, 211, 102, 0.55), 0 0 28px var(--accent-green-glow);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .admin-property-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 18px;
+            border-radius: 18px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .admin-property-card:hover {
+            border-color: var(--accent-cyan);
+        }
+
+        .admin-prop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-actions-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            padding: 9px 18px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            font-weight: 800;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.25s ease;
+        }
+
+        .btn-action.sold {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border-color: rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-action.sold.active {
+            background: #ef4444;
+            color: #fff;
+            box-shadow: 0 0 14px rgba(239, 68, 68, 0.65);
+        }
+
+        .btn-action.edit {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .btn-action.edit:hover {
+            background: #38bdf8;
+            color: #020617;
+        }
+
+        .btn-action.delete {
+            background: rgba(255, 85, 85, 0.15);
+            color: #ff5555;
+            border-color: rgba(255, 85, 85, 0.4);
+        }
+
+        .btn-action.delete:hover {
+            background: #ff5555;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: #01040f;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* === SCROLL REVEAL ANIMATIONS === */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* REDUCED MOTION ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .particles-layer { animation: none; }
+            #mouseSpotlight { display: none; }
+        }
+
+        /* RESPONSIVE MEDIA QUERIES */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .image-wrapper { max-width: 100%; height: 350px; }
+            .hero-title { font-size: 2.7rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.15rem; }
+            .hero-subtitle { font-size: 1.05rem; }
+            .hero-content { padding: 36px 22px; border-radius: 28px; }
+            .btn-primary, .btn-secondary-sm { width: 100%; }
+            .buildings-front { height: 48%; }
+            .buildings-back { height: 38%; }
+            .section-title { font-size: 2.1rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 14px; }
+            .options-grid { grid-template-columns: 1fr; }
+            .contact-bar { justify-content: center; }
+            .location-tag { margin-right: 0; width: 100%; justify-content: center; margin-top: 10px; }
+            .back-btn-card { grid-column: span 1; }
+            #mouseSpotlight { display: none; }
+            .modal-content { padding: 26px 20px; border-radius: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MOUSE SPOTLIGHT FOLLOWER -->
+    <div id="mouseSpotlight"></div>
+
+    <!-- AMBIENT BACKGROUND GLOWS -->
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="heroSection">
+        <div class="hero-bg-container">
+            <div class="particles-layer"></div>
+
+            <div class="buildings-back" id="layerBack">
+                <svg viewBox="0 0 1440 320" fill="none" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                    <path fill="#0d1b2a" opacity="0.7" d="M0,320 L0,180 L40,180 L40,120 L90,120 L90,220 L150,220 L150,150 L210,150 L210,320 L280,320 L280,90 L360,90 L360,320 L450,320 L450,160 L520,160 L520,320 L610,320 L610,100 L680,100 L680,320 L780,320 L780,140 L850,140 L850,320 L960,320 L960,80 L1040,80 L1040,320 L1150,320 L1150,170 L1240,170 L1240,320 L1350,320 L1350,130 L1440,130 L1440,320 Z"/>
+                </svg>
+            </div>
+
+            <div class="buildings-front" id="layerFront">
+                <svg viewBox="0 0 1440 400" fill="none" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                    <path fill="#0b1329" d="M0,400 L0,200 L60,200 L60,110 L140,110 L140,400 L220,400 L220,160 L320,160 L320,400 L400,400 L400,80 L510,80 L510,400 L620,400 L620,190 L710,190 L710,400 L800,400 L800,50 L930,50 L930,400 L1020,400 L1020,140 L1130,140 L1130,400 L1250,400 L1250,100 L1360,100 L1360,400 L1440,400 L1440,400 Z"/>
+                    <rect x="400" y="76" width="110" height="4" fill="#25D366" class="green-accent-glow" />
+                    <rect x="800" y="46" width="130" height="4" fill="#25D366" class="green-accent-glow" />
+                    <rect x="1250" y="96" width="110" height="4" fill="#25D366" class="green-accent-glow" />
+
+                    <rect class="window-glow-1" x="80" y="130" width="12" height="16" rx="2" />
+                    <rect class="window-glow-2" x="105" y="130" width="12" height="16" rx="2" />
+                    <rect class="window-glow-3" x="80" y="160" width="12" height="16" rx="2" />
+                    <rect class="window-glow-1" x="105" y="190" width="12" height="16" rx="2" />
+
+                    <rect class="window-glow-2" x="420" y="110" width="14" height="20" rx="2" />
+                    <rect class="window-glow-1" x="450" y="110" width="14" height="20" rx="2" />
+                    <rect class="window-glow-3" x="480" y="110" width="14" height="20" rx="2" />
+                    <rect class="window-glow-3" x="420" y="150" width="14" height="20" rx="2" />
+                    <rect class="window-glow-2" x="480" y="150" width="14" height="20" rx="2" />
+                    <rect class="window-glow-1" x="450" y="190" width="14" height="20" rx="2" />
+
+                    <rect class="window-glow-1" x="830" y="80" width="15" height="22" rx="2" />
+                    <rect class="window-glow-3" x="880" y="80" width="15" height="22" rx="2" />
+                    <rect class="window-glow-2" x="855" y="120" width="15" height="22" rx="2" />
+                    <rect class="window-glow-1" x="830" y="160" width="15" height="22" rx="2" />
+
+                    <rect class="window-glow-3" x="1280" y="130" width="12" height="18" rx="2" />
+                    <rect class="window-glow-1" x="1310" y="130" width="12" height="18" rx="2" />
+                    <rect class="window-glow-2" x="1280" y="170" width="12" height="18" rx="2" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-logo-wrapper">
+                <img src="assets/logo.jpg" alt="شعار شركة النصر" class="hero-logo-img">
+            </div>
+
+            <div class="hero-badge">
+                شركة النصر للتسويق والخدمات
+            </div>
+            
+            <h1 class="hero-title">
+                احتياجاتك وخدماتك عندنا <span>في الإسماعيلية وضواحيها</span>
+            </h1>
+            <p class="hero-subtitle">
+                نوفر لك افضل الخدمات في الاسماعيلية وضواحيها بافضل الاسعار.
+            </p>
+
+            <div class="hero-actions-group">
+                <button class="btn-primary" onclick="openModal('propertyCategoryModal')">
+                    للتفاصيل والاستعلام 🎯
+                </button>
+                <button class="btn-secondary-sm" onclick="openModal('clientAddPropertyModal')">
+                    اعرض خدمتك معنا 🔑
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: من نحن -->
+    <section class="about-section" id="aboutSection">
+        <div class="about-container">
+            <div class="section-header reveal-on-scroll">
+                <span class="section-tag">تعرف علينا</span>
+                <h2 class="section-title">من نحن</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="profile-card reveal-on-scroll">
+                    <div class="logo-box" ondblclick="openModal('adminLoginModal')" title="النصر للتسويق والخدمات">
+                        <img src="assets/logo.jpg" alt="شعار شركة النصر" class="company-logo">
+                    </div>
+
+                    <div class="image-wrapper">
+                        <img src="assets/abo-karim.jpg" alt="الأستاذ أبو كريم - خبير ومسوق معتمد">
+                    </div>
+
+                    <div class="badge-certified">
+                        ✓ خبير ومسوق معتمد
+                    </div>
+                </div>
+
+                <div class="about-info reveal-on-scroll">
+                    <div>
+                        <h3 class="person-name">الأستاذ أبو كريم</h3>
+                        <p class="person-title">خبير ومسوق معتمد - الإسماعيلية وضواحيها</p>
+                    </div>
+
+                    <p class="about-text">
+                        بنوفرلك جميع الخدمات والعروض في الإسماعيلية وضواحيها بأسعار ممتازة. تقدر تتواصل معانا أو تصفح الموقع عشان تلاقي طلبك من خانة للتفاصيل والاستعلام فوق.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>تغطية كاملة</h4>
+                            <p>الإسماعيلية وضواحيها</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>اعتماد رسمي</h4>
+                            <p>خبير ومسوق معتمد</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>تسهيلات كاملة</h4>
+                            <p>خدمات، تسويق، واستشارات</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-bar">
+                        <a href="https://wa.me/201281669573" target="_blank" class="social-btn whatsapp" title="تواصل عبر الواتساب">
+                            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+
+                        <a href="tel:01281669573" class="social-btn" title="اتصال هاتفي">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </a>
+
+                        <a href="https://www.facebook.com/profile.php?id=61574726456467&locale=ar_AR" target="_blank" class="social-btn facebook" title="صفحة الفيسبوك">
+                            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+
+                        <div class="location-tag">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5-2.5z"/></svg>
+                            الإسماعيلية وضواحيها، مصر
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        جميع الحقوق محفوظة © شركة النصر للتسويق والخدمات
+    </footer>
+
+    <!-- MODAL 1: اختيار قسم الخدمة (للتفاصيل والاستعلام) -->
+    <div class="modal-overlay" id="propertyCategoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">اختر نوع الخدمة المطلوب</h3>
+                <button class="close-modal" onclick="closeModal('propertyCategoryModal')">&times;</button>
+            </div>
+            <p style="color: var(--text-muted); font-size: 14.5px;">اختر القسم لعرض العروض والخدمات المتاحة لدينا:</p>
+            
+            <div class="options-grid">
+                <div class="option-card" onclick="openModal('realEstateSubModal'); closeModal('propertyCategoryModal');" style="background: rgba(37, 211, 102, 0.12); border-color: var(--accent-green);">🏠 عقارات (جميع الأقسام)</div>
+                <div class="option-card" onclick="viewPropertiesCategory('خدمات تسويقية')">💼 خدمات تسويقية</div>
+                <div class="option-card" onclick="viewPropertiesCategory('منتجات ومعروضات')">📦 منتجات ومعروضات</div>
+                <div class="option-card" onclick="viewPropertiesCategory('استشارات وتسهيلات')">💡 استشارات وتسهيلات</div>
+                <div class="option-card" onclick="viewPropertiesCategory('طلبات خاصة')">🎯 طلبات خاصة</div>
+                <div class="option-card" onclick="viewPropertiesCategory('خدمات أخرى')">✨ خدمات أخرى</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 1.5: خيارات قسم الأقسام الفرعية -->
+    <div class="modal-overlay" id="realEstateSubModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">🏠 الأقسام الرئيسية - اختر النوع</h3>
+                <button class="close-modal" onclick="closeModal('realEstateSubModal')">&times;</button>
+            </div>
+            <p style="color: var(--text-muted); font-size: 14.5px;">حدد الفئة المطلوبة للتصفح والاستعلام:</p>
+            
+            <div class="options-grid">
+                <div class="option-card" onclick="viewPropertiesCategory('منزل للبيع')">🏡 منزل للبيع</div>
+                <div class="option-card" onclick="viewPropertiesCategory('شقة للبيع')">🏢 شقة للبيع</div>
+                <div class="option-card" onclick="viewPropertiesCategory('شقة للإيجار')">🔑 شقة للإيجار</div>
+                <div class="option-card" onclick="viewPropertiesCategory('محل للبيع')">🏪 محل للبيع</div>
+                <div class="option-card" onclick="viewPropertiesCategory('محل للإيجار')">🏬 محل للإيجار</div>
+                <div class="option-card" onclick="viewPropertiesCategory('فيلا للبيع')">🏰 فيلا للبيع</div>
+                <div class="option-card" onclick="viewPropertiesCategory('أراضي للبيع')">🏞️ أراضي للبيع</div>
+                <div class="option-card back-btn-card" onclick="closeModal('realEstateSubModal'); openModal('propertyCategoryModal');">🔙 العودة للأقسام الرئيسية</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: نموذج اعرض خدمتك معنا (للعملاء) -->
+    <div class="modal-overlay" id="clientAddPropertyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">اعرض خدمتك معنا 🔑</h3>
+                <button class="close-modal" onclick="closeModal('clientAddPropertyModal')">&times;</button>
+            </div>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 18px;">أدخل تفاصيل خدمتك أو عرضك وسنتواصل معك فوراً لتسويقها وعرضها لأعلى فئة مستهدفة:</p>
+            
+            <form onsubmit="handleClientPropertySubmit(event)">
+                <div class="input-group">
+                    <label>الاسم:</label>
+                    <input type="text" id="clientName" class="input-control" placeholder="أدخل اسمك" required>
+                </div>
+                <div class="input-group">
+                    <label>رقم للتواصل (هاتف / واتساب):</label>
+                    <input type="tel" id="clientPhone" class="input-control" placeholder="01xxxxxxxxx" required>
+                </div>
+                <div class="input-group">
+                    <label>نوع الخدمة / العرض:</label>
+                    <select id="clientPropType" class="input-control" required>
+                        <optgroup label="🏠 أقسام العقارات">
+                            <option value="منزل للبيع">منزل للبيع</option>
+                            <option value="شقة للبيع">شقة للبيع</option>
+                            <option value="شقة للإيجار">شقة للإيجار</option>
+                            <option value="محل للبيع">محل للبيع</option>
+                            <option value="محل للإيجار">محل للإيجار</option>
+                            <option value="فيلا للبيع">فيلا للبيع</option>
+                            <option value="أراضي للبيع">أراضي للبيع</option>
+                        </optgroup>
+                        <optgroup label="💼 أقسام أخرى">
+                            <option value="خدمات تسويقية">خدمات تسويقية</option>
+                            <option value="تسويق منتج / تجارة">تسويق منتج / تجارة</option>
+                            <option value="استشارات وتسهيلات">استشارات وتسهيلات</option>
+                            <option value="أخرى">أخرى</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>الموقع / المنطقة بالإسماعيلية:</label>
+                    <input type="text" id="clientLocation" class="input-control" placeholder="مثال: الشيخ زايد - الشارع التجاري" required>
+                </div>
+                <div class="input-group">
+                    <label>الوصف والتفاصيل الكاملة:</label>
+                    <textarea id="clientDetails" class="input-control" rows="3" placeholder="المساحة، التفاصيل، والسعر المطلوب..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">إرسال التفاصيل عبر الواتساب 📲</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: عرض قائمة الخدمات والعروض حسب القسم -->
+    <div class="modal-overlay" id="propertiesDisplayModal">
+        <div class="modal-content" style="max-width: 720px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="displayCategoryTitle">العروض والخدمات المتاحة</h3>
+                <button class="close-modal" onclick="closeModal('propertiesDisplayModal')">&times;</button>
+            </div>
+
+            <div id="propertiesListContainer">
+                <!-- يتم التحميل ديناميكياً بواسطة JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: تسجيل دخول الإدارة (مخفي) -->
+    <div class="modal-overlay" id="adminLoginModal">
+        <div class="modal-content" style="max-width: 420px;">
+            <div class="modal-header">
+                <h3 class="modal-title">تسجيل دخول الإدارة</h3>
+                <button class="close-modal" onclick="closeModal('adminLoginModal')">&times;</button>
+            </div>
+            <form onsubmit="handleAdminLogin(event)">
+                <div class="input-group">
+                    <label>أدخل كلمة المرور:</label>
+                    <input type="password" id="adminPasswordInput" class="input-control" placeholder="••••••••••••" required>
+                </div>
+                <button type="submit" class="btn-submit">دخول</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 5: لوحة التحكم (إضافة، تعديل، حذف، ختم مكتمل) -->
+    <div class="modal-overlay" id="adminDashboardModal">
+        <div class="modal-content" style="max-width: 720px;">
+            <div class="modal-header">
+                <h3 class="modal-title">لوحة إدارة العروض والخدمات ⚙️</h3>
+                <button class="close-modal" onclick="closeModal('adminDashboardModal')">&times;</button>
+            </div>
+            
+            <form id="propertyForm" onsubmit="handlePropertySubmit(event)" style="background: rgba(0,0,0,0.35); padding: 22px; border-radius: 20px; margin-bottom: 22px; border: 1px solid rgba(56,189,248,0.2);">
+                <h4 id="formHeaderTitle" style="color: var(--accent-green); margin-bottom: 14px; font-size: 16px; font-weight: 800;">➕ إضافة عرض / خدمة جديد:</h4>
+                <input type="hidden" id="editPropId" value="">
+
+                <div class="input-group">
+                    <label>نوع القسم الفرعي:</label>
+                    <select id="newPropType" class="input-control" required>
+                        <optgroup label="🏠 أقسام العقارات">
+                            <option value="منزل للبيع">منزل للبيع</option>
+                            <option value="شقة للبيع">شقة للبيع</option>
+                            <option value="شقة للإيجار">شقة للإيجار</option>
+                            <option value="محل للبيع">محل للبيع</option>
+                            <option value="محل للإيجار">محل للإيجار</option>
+                            <option value="فيلا للبيع">فيلا للبيع</option>
+                            <option value="أراضي للبيع">أراضي للبيع</option>
+                        </optgroup>
+                        <optgroup label="💼 أقسام الخدمات والتسويق">
+                            <option value="خدمات تسويقية">خدمات تسويقية</option>
+                            <option value="منتجات ومعروضات">منتجات ومعروضات</option>
+                            <option value="استشارات وتسهيلات">استشارات وتسهيلات</option>
+                            <option value="طلبات خاصة">طلبات خاصة</option>
+                            <option value="خدمات أخرى">خدمات أخرى</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>عنوان العرض / الخدمة:</label>
+                    <input type="text" id="newPropTitle" class="input-control" placeholder="مثال: شقة سوبر لوكس للبيع بالشيخ زايد" required>
+                </div>
+
+                <div class="input-group">
+                    <label>السعر / المطلوب:</label>
+                    <input type="text" id="newPropPrice" class="input-control" placeholder="مثال: 850,000 ج.م" required>
+                </div>
+
+                <div class="input-group">
+                    <label>التفاصيل والمواصفات:</label>
+                    <textarea id="newPropDetails" class="input-control" rows="3" placeholder="أدخل المساحة، الدور، عدد الغرف والتفاصيل الكاملة..." required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>الصورة (سيتم وضع العلامة المائية تلقائياً 🛡️):</label>
+                    <input type="file" id="newPropImage" class="input-control" accept="image/*">
+                </div>
+
+                <div style="display: flex; gap: 12px;">
+                    <button type="submit" id="formSubmitBtn" class="btn-submit">نشر العرض الآن 🚀</button>
+                    <button type="button" id="cancelEditBtn" onclick="resetAdminForm()" style="display: none; background: #475569; color: #fff; padding: 14px 20px; border: none; border-radius: 14px; cursor: pointer; font-weight: 800; transition: background 0.3s;">إلغاء التعديل</button>
+                </div>
+            </form>
+
+            <h4 style="color: #fff; margin-bottom: 14px; font-size: 16px; font-weight: 800;">📋 جميع العروض والخدمات المنشورة:</h4>
+            <div id="adminPropertiesList">
+                <!-- تحميل قائمة البوستات للتحكم بها -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mouse Spotlight Follower
+        const mouseSpotlight = document.getElementById('mouseSpotlight');
+        if (window.matchMedia('(pointer: fine)').matches) {
+            window.addEventListener('mousemove', (e) => {
+                mouseSpotlight.style.transform = `translate(${e.clientX - 325}px, ${e.clientY - 325}px)`;
+            });
+        }
+
+        // Parallax Effect
+        const hero = document.getElementById('heroSection');
+        const layerBack = document.getElementById('layerBack');
+        const layerFront = document.getElementById('layerFront');
+        let ticking = false;
+
+        hero.addEventListener('mousemove', (e) => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const { clientX, clientY } = e;
+                    const xPercent = (clientX / window.innerWidth - 0.5);
+                    const yPercent = (clientY / window.innerHeight - 0.5);
+                    layerBack.style.transform = `translate3d(${xPercent * -16}px, ${yPercent * -10}px, 0)`;
+                    layerFront.style.transform = `translate3d(${xPercent * -34}px, ${yPercent * -18}px, 0)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Scroll Reveal Animations Observer
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollObserver.observe(el));
+
+        // Modals Management
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // Close Modal on clicking outside content
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeModal(overlay.id);
+                }
+            });
+        });
+
+        // Close Modal on Escape Key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => closeModal(modal.id));
+            }
+        });
+
+        // إرسال نموذج العميل "اعرض خدمتك معنا" عبر الواتساب
+        function handleClientPropertySubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const propType = document.getElementById('clientPropType').value;
+            const location = document.getElementById('clientLocation').value;
+            const details = document.getElementById('clientDetails').value;
+
+            const message = `السلام عليكم، أود عرض خدمتي/عرضي عبر منطقتكم:\n\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n📌 نوع الخدمة/العرض: ${propType}\n📍 العنوان/المنطقة: ${location}\n📝 التفاصيل والسعر: ${details}`;
+            
+            const encodedMsg = encodeURIComponent(message);
+            window.open(`https://wa.me/201281669573?text=${encodedMsg}`, '_blank');
+            closeModal('clientAddPropertyModal');
+        }
+
+        // دالة إنشاء علامة مائية احترافية على الصورة تلقائياً باستخدام HTML5 Canvas
+        function createWatermarkedImage(file, callback) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+
+                    // رسم الصورة الأصلية
+                    ctx.drawImage(img, 0, 0);
+
+                    // إضافة تأثير ظل للنص
+                    ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+                    ctx.shadowBlur = 8;
+                    ctx.shadowOffsetX = 3;
+                    ctx.shadowOffsetY = 3;
+
+                    // حجم خط متغير حسب أبعاد الصورة
+                    const fontSize = Math.max(22, Math.floor(canvas.width / 22));
+                    ctx.font = `900 ${fontSize}px -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Arabic", 'Cairo', sans-serif`;
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+                    ctx.textAlign = 'right';
+
+                    // كتابة اسم الشركة ورقم الهاتف في أسفل اليمين
+                    const watermarkText = "شركة النصر للتسويق والخدمات | 01281669573";
+                    ctx.fillText(watermarkText, canvas.width - 25, canvas.height - 25);
+
+                    // طباعة شريط خفيف كخلفية للعلامة
+                    ctx.fillStyle = 'rgba(37, 211, 102, 0.9)';
+                    ctx.fillRect(canvas.width - 15, canvas.height - fontSize - 25, 6, fontSize + 10);
+
+                    callback(canvas.toDataURL('image/jpeg', 0.88));
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // عرض عروض قسم معين للزائر
+        function viewPropertiesCategory(categoryType) {
+            closeModal('propertyCategoryModal');
+            closeModal('realEstateSubModal');
+            document.getElementById('displayCategoryTitle').innerText = categoryType;
+            
+            const properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+            const filtered = properties.filter(p => p.type === categoryType);
+            const container = document.getElementById('propertiesListContainer');
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        ⚠️ عذراً، لا تتوفر عروض حالياً في قسم (${categoryType}).<br>
+                        <small style="font-weight: 600; color: var(--text-muted); margin-top: 8px; display: block;">يرجى التحقق لاحقاً أو التواصل معنا مباشرة لطلبك الخاص.</small>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="properties-grid">
+                        ${filtered.map(p => `
+                            <div class="property-card">
+                                <div class="property-img-wrap">
+                                    <img src="${p.image}" class="property-img" alt="${p.title}">
+                                    ${p.isSold ? `<div class="sold-badge-overlay">تم البيع / غير متاح 🛑</div>` : ''}
+                                </div>
+                                <div class="property-body">
+                                    <span class="property-badge">${p.type}</span>
+                                    <h4 class="property-title-text">${p.title}</h4>
+                                    <div class="property-price">${p.price}</div>
+                                    <p class="property-desc">${p.details}</p>
+                                    
+                                    ${p.isSold ? `
+                                        <button class="btn-primary btn-disabled" disabled style="padding: 12px; font-size: 15px; width: 100%; margin-top: 5px;">
+                                            هذا العرض غير متاح حالياً 🛑
+                                        </button>
+                                    ` : `
+                                        <button class="btn-primary" style="padding: 12px; font-size: 15px; width: 100%; margin-top: 5px;" onclick="requestInspection('${escapeQuotes(p.title)}', '${escapeQuotes(p.type)}', '${escapeQuotes(p.price)}')">
+                                            للتفاصيل والاستعلام 📩
+                                        </button>
+                                    `}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            openModal('propertiesDisplayModal');
+        }
+
+        function escapeQuotes(str) {
+            return str ? str.replace(/'/g, "\\'").replace(/"/g, '&quot;') : '';
+        }
+
+        // طلب استعلام عبر الواتساب
+        function requestInspection(title, type, price) {
+            const message = `السلام عليكم، أود الاستعلام عن الخدمة/العرض التالي:\n\n📌 القسم: ${type}\n🏢 العنوان/التفاصيل: ${title}\n💰 السعر المطلوب: ${price}\n\nيرجى تزويدي بكافة التفاصيل وإمكانية المعاينة.`;
+            const encodedMsg = encodeURIComponent(message);
+            window.open(`https://wa.me/201281669573?text=${encodedMsg}`, '_blank');
+        }
+
+        // تسجيل دخول لوحة التحكم
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const pass = document.getElementById('adminPasswordInput').value;
+            if (pass === '0128166957301028799871') {
+                closeModal('adminLoginModal');
+                document.getElementById('adminPasswordInput').value = '';
+                loadAdminPropertiesList();
+                openModal('adminDashboardModal');
+            } else {
+                alert('كلمة المرور غير صحيحة!');
+            }
+        }
+
+        // حفظ أو تعديل عرض / خدمة
+        function handlePropertySubmit(e) {
+            e.preventDefault();
+            
+            const editId = document.getElementById('editPropId').value;
+            const type = document.getElementById('newPropType').value;
+            const title = document.getElementById('newPropTitle').value;
+            const price = document.getElementById('newPropPrice').value;
+            const details = document.getElementById('newPropDetails').value;
+            const fileInput = document.getElementById('newPropImage');
+
+            let properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+
+            if (editId) {
+                // تعديل بوست موجود سابقاً
+                const index = properties.findIndex(p => p.id == editId);
+                if (index !== -1) {
+                    properties[index].type = type;
+                    properties[index].title = title;
+                    properties[index].price = price;
+                    properties[index].details = details;
+
+                    if (fileInput.files && fileInput.files[0]) {
+                        createWatermarkedImage(fileInput.files[0], function(watermarkedUrl) {
+                            properties[index].image = watermarkedUrl;
+                            localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+                            alert('تم تعديل العرض ودمج الصورة الجديدة بنجاح!');
+                            resetAdminForm();
+                            loadAdminPropertiesList();
+                        });
+                    } else {
+                        localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+                        alert('تم تعديل البيانات بنجاح!');
+                        resetAdminForm();
+                        loadAdminPropertiesList();
+                    }
+                }
+            } else {
+                // إضافة عرض جديد
+                if (!fileInput.files || !fileInput.files[0]) {
+                    alert('يرجى اختيار صورة للعرض أو الخدمة.');
+                    return;
+                }
+
+                createWatermarkedImage(fileInput.files[0], function(watermarkedUrl) {
+                    const newProperty = {
+                        id: Date.now(),
+                        type: type,
+                        title: title,
+                        price: price,
+                        details: details,
+                        image: watermarkedUrl,
+                        isSold: false
+                    };
+
+                    properties.unshift(newProperty);
+                    localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+
+                    alert('تم إضافة العلامة المائية ونشر العرض بنجاح! 🛡️🚀');
+                    resetAdminForm();
+                    loadAdminPropertiesList();
+                });
+            }
+        }
+
+        // تجهيز البوست للتعديل
+        function editProperty(id) {
+            const properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+            const prop = properties.find(p => p.id == id);
+            if (!prop) return;
+
+            document.getElementById('editPropId').value = prop.id;
+            document.getElementById('newPropType').value = prop.type;
+            document.getElementById('newPropTitle').value = prop.title;
+            document.getElementById('newPropPrice').value = prop.price;
+            document.getElementById('newPropDetails').value = prop.details;
+
+            document.getElementById('formHeaderTitle').innerText = '✏️ تعديل بيانات العرض:';
+            document.getElementById('formSubmitBtn').innerText = 'حفظ التعديلات 💾';
+            document.getElementById('cancelEditBtn').style.display = 'block';
+
+            document.getElementById('propertyForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetAdminForm() {
+            document.getElementById('editPropId').value = '';
+            document.getElementById('newPropTitle').value = '';
+            document.getElementById('newPropPrice').value = '';
+            document.getElementById('newPropDetails').value = '';
+            document.getElementById('newPropImage').value = '';
+            document.getElementById('formHeaderTitle').innerText = '➕ إضافة عرض / خدمة جديد:';
+            document.getElementById('formSubmitBtn').innerText = 'نشر العرض الآن 🚀';
+            document.getElementById('cancelEditBtn').style.display = 'none';
+        }
+
+        // وضع أو إلغاء ختم تم البيع/المكتمل
+        function toggleSoldStatus(id) {
+            let properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+            const index = properties.findIndex(p => p.id == id);
+            if (index !== -1) {
+                properties[index].isSold = !properties[index].isSold;
+                localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+                loadAdminPropertiesList();
+            }
+        }
+
+        // تحميل قائمة جميع البوستات في لوحة التحكم
+        function loadAdminPropertiesList() {
+            const container = document.getElementById('adminPropertiesList');
+            const properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+
+            if (properties.length === 0) {
+                container.innerHTML = `<p style="color: var(--text-muted); font-size: 13.5px; text-align: center; padding: 20px;">لا توجد عروض أو خدمات منشورة حالياً.</p>`;
+                return;
+            }
+
+            container.innerHTML = properties.map(p => `
+                <div class="admin-property-card">
+                    <div class="admin-prop-header">
+                        <div>
+                            <strong style="color: #fff; font-size: 15px;">${p.title}</strong>
+                            <span style="color: var(--accent-green); font-size: 13px; display: block; margin-top: 3px;">${p.type} - ${p.price}</span>
+                        </div>
+                        ${p.isSold ? `<span style="background: var(--danger-color); color:#fff; font-size:11px; padding:4px 10px; border-radius:8px; font-weight:900;">تم البيع 🛑</span>` : ''}
+                    </div>
+
+                    <div class="admin-actions-bar">
+                        <button class="btn-action sold ${p.isSold ? 'active' : ''}" onclick="toggleSoldStatus(${p.id})">
+                            ${p.isSold ? 'إلغاء ختم البيع 🔄' : 'ختم تم البيع 🛑'}
+                        </button>
+                        <button class="btn-action edit" onclick="editProperty(${p.id})">تعديل ✏️</button>
+                        <button class="btn-action delete" onclick="deleteProperty(${p.id})">حذف 🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // حذف البوستات
+        function deleteProperty(id) {
+            if (confirm('هل أنت تأكد من حذف هذا العرض نهائياً؟')) {
+                let properties = JSON.parse(localStorage.getItem('alnasr_properties_data') || '[]');
+                properties = properties.filter(p => p.id !== id);
+                localStorage.setItem('alnasr_properties_data', JSON.stringify(properties));
+                loadAdminPropertiesList();
+            }
+        }
+    </script>
+</body>
+</html>
